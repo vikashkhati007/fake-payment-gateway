@@ -23,8 +23,8 @@ export default function SignupInForm() {
       console.log(bin);
       let cardDetails = GetCreditCard(bin);
       const results = databases.createDocument(
-        `66ca805d0029c5fcac86`,
-        `66ca806b003b510ae7c0`,
+        `${process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID}`,
+        `${process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ID}`,
         ID.unique(),
         {
           firstName: e.target.firstName.value,

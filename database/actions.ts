@@ -3,8 +3,8 @@ import { databases } from "./appwrite";
 
 export const checkExistingUser = async (emailaddress: string) => {
     const result = await databases.listDocuments(
-        `66ca805d0029c5fcac86`,
-         `66ca806b003b510ae7c0`,
+        `${process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID}`,
+         `${process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ID}`,
         [
             Query.equal('email', emailaddress)
         ]
@@ -14,8 +14,8 @@ export const checkExistingUser = async (emailaddress: string) => {
 
 export const loginUser = async (emailaddress: string, password: string) => {
     const result = await databases.listDocuments(
-        `66ca805d0029c5fcac86`,
-         `66ca806b003b510ae7c0`,
+        `${process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID}`,
+         `${process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ID}`,
         [
             Query.equal('email', emailaddress),
             Query.equal('password', password)
